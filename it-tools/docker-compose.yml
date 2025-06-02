@@ -11,6 +11,8 @@ services:
             retries: 3
         networks:
             it-tools:
+                aliases:
+                    - it-tools
                 ipv4_address: ${IPv4}
         ports:
           - "${HOST_PORT}:80"
@@ -25,3 +27,4 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
+                  gateway: ${GATEWAY}

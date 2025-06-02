@@ -14,7 +14,7 @@ services:
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
             - POSTGRES_DB=linkwarden
         networks:
-            - linkwarden-private
+            - linkwarden-internal
         ports:
             - "${HOST_PORT_PG}:5432"
         volumes:
@@ -41,8 +41,10 @@ services:
             - NEXTAUTH_URL=http://linkwarden:3000/api/v1/auth
         networks:
             linkwarden:
+                aliases:
+                    - linkwarden
                 ipv4_address: ${IPv4}
-            linkwarden-private:
+            linkwarden-internal:
         ports:
             - "${HOST_PORT}:3000"
         volumes:
@@ -63,9 +65,12 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-    linkwarden-private:
-        name: linkwarden-private
+                  gateway: ${GATEWAY}
+    linkwarden-internal:
+        name: linkwarden-internal
         driver: bridge
+        internal: true
         ipam:
             config:
-                - subnet: ${SUBNET_PRIVATE}
+                - subnet: ${SUBNET_INTERNAL}
+                  gateway: ${GATEWAY_INTERNAL}

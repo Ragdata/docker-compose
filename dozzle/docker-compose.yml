@@ -14,11 +14,11 @@ services:
             - DOZZLE_FILTER=status=running
         networks:
             dozzle:
+                aliases:
+                    - dozzle
                 ipv4_address: ${IPv4}
         ports:
             - "${HOST_PORT}:8080"
-        extra_hosts:
-            dozzle: "${IPv4}"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock:ro
           - /etc/localtime:/etc/localtime:ro
@@ -31,3 +31,4 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
+                  gateway: ${GATEWAY}
