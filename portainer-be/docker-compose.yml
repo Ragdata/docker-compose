@@ -6,38 +6,32 @@ services:
         restart: unless-stopped
         healthcheck:
             test: ["CMD-SHELL", "wget --no-verbose --tries=3 --spider http://portainer:9000 || exit 1"]
-            interval: 30s
+            interval: 1m
             timeout: 10s
             retries: 3
-        networks:
-        - portainer
+        network_mode: host
         ports:
-        - "8000:8000"
-        - "9000:9000"
-        - "9443:9443"
+            - "8000:8000"
+            - "9000:9000"
+            - "9443:9443"
         volumes:
-        - portainer-data:/data
-        - /var/run/docker.sock:/var/run/docker.sock
-        - /etc/localtime:/etc/localtime:ro
-        - /etc/timezone:/etc/timezone:ro
+            - portainer-data:/data
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
 
     portainer-tools:
         image: technorabilia/portainer-tools
         hostname: portainer-tools
         container_name: portainer-tools
         restart: unless-stopped
-        networks:
-        - portainer
+        network_mode: host
         ports:
-        - "9999:9999"
+            - "9999:9999"
         volumes:
-        - portainer-tools:/config
-        - /etc/localtime:/etc/localtime:ro
-        - /etc/timezone:/etc/timezone:ro
-
-networks:
-    portainer:
-        driver: bridge
+            - portainer-tools:/config
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
 
 volumes:
     portainer-data:
