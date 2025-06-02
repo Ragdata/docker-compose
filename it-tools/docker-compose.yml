@@ -1,0 +1,25 @@
+services:
+    it-tools:
+        image: corentinth/it-tools
+        hostname: it-tools
+        container_name: it-tools
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "curl --fail http://it-tools:80 || exit 1"]
+            interval: 1m
+            timeout: 10s
+            retries: 3
+        networks:
+            - it-tools
+        ports:
+          - "8080:8080"
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+
+networks:
+    it-tools:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: ${SUBNET}
