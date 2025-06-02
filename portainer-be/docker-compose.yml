@@ -1,0 +1,46 @@
+services:
+    portainer:
+        image: portainer/portainer-ee:alpine
+        hostname: portainer
+        container_name: portainer
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD-SHELL", "wget --no-verbose --tries=3 --spider http://portainer:9000 || exit 1"]
+            interval: 30s
+            timeout: 10s
+            retries: 3
+        networks:
+        - portainer
+        ports:
+        - "8000:8000"
+        - "9000:9000"
+        - "9443:9443"
+        volumes:
+        - portainer-data:/data
+        - /var/run/docker.sock:/var/run/docker.sock
+        - /etc/localtime:/etc/localtime:ro
+        - /etc/timezone:/etc/timezone:ro
+
+    portainer-tools:
+        image: technorabilia/portainer-tools
+        hostname: portainer-tools
+        container_name: portainer-tools
+        restart: unless-stopped
+        networks:
+        - portainer
+        ports:
+        - "9999:9999"
+        volumes:
+        - portainer-tools:/config
+        - /etc/localtime:/etc/localtime:ro
+        - /etc/timezone:/etc/timezone:ro
+
+networks:
+    portainer:
+        driver: bridge
+
+volumes:
+    portainer-data:
+        driver: local
+    portainer-tools:
+        driver: local
