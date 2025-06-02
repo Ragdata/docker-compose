@@ -32,10 +32,12 @@ services:
 
 volumes:
     vaultwarden-data:
+        name: vaultwarden-data
         driver: local
 
 networks:
     vaultwarden:
+        name: vaultwarden
         driver: bridge
         ipam:
             config:

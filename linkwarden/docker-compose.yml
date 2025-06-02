@@ -58,11 +58,13 @@ volumes:
 
 networks:
     linkwarden:
+        name: linkwarden
         driver: bridge
         ipam:
             config:
                 - subnet: ${SUBNET}
     linkwarden-private:
+        name: linkwarden-private
         driver: bridge
         ipam:
             config:

@@ -9,11 +9,13 @@ services:
             interval: 1m
             timeout: 10s
             retries: 3
+        networks:
+            - portainer
         network_mode: host
         ports:
-            - "8000:8000"
-            - "9000:9000"
-            - "9443:9443"
+            - "8000"
+            - "9000"
+            - "9443"
         volumes:
             - portainer-data:/data
             - /var/run/docker.sock:/var/run/docker.sock
@@ -25,9 +27,11 @@ services:
         hostname: portainer-tools
         container_name: portainer-tools
         restart: unless-stopped
+        networks:
+            - portainer
         network_mode: host
         ports:
-            - "9999:9999"
+            - "9999"
         volumes:
             - portainer-tools:/config
             - /etc/localtime:/etc/localtime:ro
@@ -35,6 +39,13 @@ services:
 
 volumes:
     portainer-data:
+        name: portainer-data
         driver: local
     portainer-tools:
+        name: portainer-tools
         driver: local
+
+networks:
+    portainer:
+        name: portainer
+        driver: host

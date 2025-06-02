@@ -20,6 +20,7 @@ services:
 
 networks:
     it-tools:
+        name: it-tools
         driver: bridge
         ipam:
             config:
