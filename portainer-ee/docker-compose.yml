@@ -9,11 +9,13 @@ services:
             interval: 1m
             timeout: 10s
             retries: 3
-        network_mode: host
+        networks:
+            portainer:
+                ipv4_address: ${IPv4}
         ports:
-            - "8000"
-            - "9000"
-            - "9443"
+            - "8000:8000"
+            - "9000:9000"
+            - "9443:9443"
         volumes:
             - portainer-data:/data
             - /var/run/docker.sock:/var/run/docker.sock
@@ -25,9 +27,11 @@ services:
         hostname: portainer-tools
         container_name: portainer-tools
         restart: unless-stopped
-        network_mode: host
+        networks:
+            portainer:
+                ipv4_address: ${IPv4_TOOLS}
         ports:
-            - "9999"
+            - "9999:9999"
         volumes:
             - portainer-tools:/config
             - /etc/localtime:/etc/localtime:ro
@@ -40,3 +44,11 @@ volumes:
     portainer-tools:
         name: portainer-tools
         driver: local
+
+networks:
+    portainer:
+        name: portainer
+        driver: bridge
+        ipam:
+            config:
+                - subnet: ${SUBNET}
