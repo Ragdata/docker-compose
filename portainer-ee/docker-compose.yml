@@ -16,6 +16,8 @@ services:
             - "8000:8000"
             - "9000:9000"
             - "9443:9443"
+        extra_hosts:
+            portainer: "${IPv4}"
         volumes:
             - portainer-data:/data
             - /var/run/docker.sock:/var/run/docker.sock
@@ -32,6 +34,8 @@ services:
                 ipv4_address: ${IPv4_TOOLS}
         ports:
             - "9999:9999"
+        extra_hosts:
+            portainer-tools: "${IPv4_TOOLS}"
         volumes:
             - portainer-tools:/config
             - /etc/localtime:/etc/localtime:ro
