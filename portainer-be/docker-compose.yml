@@ -9,8 +9,6 @@ services:
             interval: 1m
             timeout: 10s
             retries: 3
-        networks:
-            - portainer
         network_mode: host
         ports:
             - "8000"
@@ -27,8 +25,6 @@ services:
         hostname: portainer-tools
         container_name: portainer-tools
         restart: unless-stopped
-        networks:
-            - portainer
         network_mode: host
         ports:
             - "9999"
@@ -44,8 +40,3 @@ volumes:
     portainer-tools:
         name: portainer-tools
         driver: local
-
-networks:
-    portainer:
-        name: portainer
-        driver: host
