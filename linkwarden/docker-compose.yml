@@ -54,8 +54,10 @@ services:
 
 volumes:
     linkwarden-postgres:
+        name: linkwarden-postgres
         driver: local
     linkwarden-data:
+        name: linkwarden-data
         driver: local
 
 networks:
