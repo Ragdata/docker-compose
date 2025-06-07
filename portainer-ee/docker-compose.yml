@@ -5,7 +5,7 @@ services:
         container_name: portainer
         restart: unless-stopped
         healthcheck:
-            test: ["CMD-SHELL", "wget --no-verbose --tries=3 --spider http://portainer:9000 || exit 1"]
+            test: ["CMD-SHELL", "wget --no-verbose --tries=3 --spider https://portainer:9443 || exit 1"]
             interval: 1m
             timeout: 10s
             retries: 3
