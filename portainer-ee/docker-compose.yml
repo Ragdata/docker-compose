@@ -11,9 +11,6 @@ services:
             retries: 3
         networks:
             portainer:
-                aliases:
-                    - portainer
-                    - portainer-ee
                 ipv4_address: ${IPv4}
         ports:
             - "8000:8000"
@@ -32,8 +29,6 @@ services:
         restart: unless-stopped
         networks:
             portainer:
-                aliases:
-                    - portainer-tools
                 ipv4_address: ${IPv4_TOOLS}
         ports:
             - "9999:9999"

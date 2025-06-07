@@ -24,8 +24,6 @@ services:
             - DOMAIN=${DOMAIN}
         networks:
             vaultwarden:
-                aliases:
-                    - vaultwarden
                 ipv4_address: ${IPv4}
         ports:
           - "${HOST_PORT}:80"

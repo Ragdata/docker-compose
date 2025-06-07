@@ -41,8 +41,6 @@ services:
             - NEXTAUTH_URL=http://linkwarden:3000/api/v1/auth
         networks:
             linkwarden:
-                aliases:
-                    - linkwarden
                 ipv4_address: ${IPv4}
             linkwarden-internal:
         ports:
