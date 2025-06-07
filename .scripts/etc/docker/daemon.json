@@ -1,4 +1,5 @@
 {
+    "data-root": "/mnt/docker",
     "bip": "172.19.0.1/24",
     "default-address-pools": [
         {"base":"172.20.0.0/16", "size":24},
