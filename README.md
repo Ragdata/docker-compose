@@ -30,23 +30,155 @@
 
 </div>
 
-## [Features](#top) ✨
+## [App Directory](#top) ✨
+
+<details><summary><em><strong>Click to View Apps</strong></em></summary>
+
+* [Cloudflare DDNS](https://github.com/Ragdata/docker-compose/blob/master/cloudflare-ddns)
+* [Dashy]()
+* [Dockwatch](https://github.com/Ragdata/docker-compose/blob/master/dockwatch)
+* [Dozzle](https://github.com/Ragdata/docker-compose/blob/master/dozzle)
+* [Handbrake]()
+* [Homarr]()
+* [Huginn]()
+* [Immich](https://github.com/Ragdata/docker-compose/blob/master/dozzle)
+    * [Immich Backup]()
+    * [Immich Machine Learning]()
+    * [Immich Power Tools]()
+    * [Immich Public Proxy]()
+* [IT Tools](https://github.com/Ragdata/docker-compose/blob/master/it-tools)
+* [Jekyll]()
+* [Jekyll-GHpages]()
+* [Linkwarden](https://github.com/Ragdata/docker-compose/blob/master/linkwarden)
+* [Mattermost]()
+* [MKVToolnix]()
+* [N8n]()
+* [NocoDB]()
+* [Portainer EE](https://github.com/Ragdata/docker-compose/tree/master/portainer-ee)
+* [Postiz]()
+* [Seafile](https://github.com/Ragdata/docker-compose/tree/master/seafile)
+* [Vaultwarden](https://github.com/Ragdata/docker-compose/tree/master/vaultwarden)
+* [WikiJS]()
+
+</details>
+<br>
 
 [`^ Top`](#top)
 
 ## [Resources](#top) 📖
 
-[`^ Top`](#top)
+### [**Docker**](https://github.com/docker)
 
-## [Copyright & Attributions](#top) ©️
+<details>
+<summary><strong>Repositories</strong></summary>
 
-This project incorporates ideas and / or code crafted by the following talented individuals:
+* [docker-install](https://github.com/docker/docker-install) (https://get.docker.com)
+* [terraform-provider-docker](https://github.com/docker/terraform-provider-docker)
+* [docker-bench-security](https://github.com/docker/docker-bench-security)
+
+</details>
+
+<details>
+<summary><strong>GitHub Actions</strong></summary>
+
+* [**github-actions-runner**](https://github.com/docker/github-actions-runner)
+* [actions-toolkit](https://github.com/docker/actions-toolkit)
+* [setup-docker-action](https://github.com/docker/setup-docker-action)
+* [setup-qemu-action](https://github.com/docker/setup-qemu-action)
+* [login-action](https://github.com/docker/login-action)
+* [setup-buildx-action](https://github.com/docker/setup-buildx-action)
+* [setup-compose-action](https://github.com/docker/setup-compose-action)
+* [metadata-action](https://github.com/docker/metadata-action)
+* [bake-action](https://github.com/docker/bake-action)
+* [build-push-action](https://github.com/docker/build-push-action)
+* [desktop-action](https://github.com/docker/desktop-action)
+
+</details>
+
+<details>
+<summary><strong>Development</strong></summary>
+
+* [**Porter**](https://porter.sh/)
+* [docker-py](https://github.com/docker/docker-py)
+* [extensions-sdk](https://github.com/docker/extensions-sdk)
+* [extensions-submissions](https://github.com/docker/extensions-submissions)
+* [extension-ideas](https://github.com/docker/extension-ideas)
+* [labs](https://github.com/docker/labs)
+
+</details>
+
+<details>
+<summary><strong>Sample Apps</strong></summary>
+
+* [docker-dotnet-sample](https://github.com/docker/docker-dotnet-sample)
+* [docker-nodejs-sample](https://github.com/docker/docker-nodejs-sample)
+* [getting-started-app](https://github.com/docker/getting-started-app)
+* [python-docker-dev](https://github.com/docker/getting-started-app)
+* [docker-php-sample](https://github.com/docker/docker-php-sample)
+* [python-docker](https://github.com/docker/python-docker)
+* [docker-rust-postgres](https://github.com/docker/docker-rust-postgres)
+
+</details>
+
+<details>
+<summary><strong>Documentation</strong></summary>
+
+* [Docker Docs](https://docs.docker.com/)
+* [Docker Compose Docs](https://docs.docker.com/compose/)
+* [cli-docs-tool](https://github.com/docker/cli-docs-tool)
+
+</details>
+
+<details>
+<summary><strong>Docker Captains Blogs</strong></summary>
+
+* [**About the Docker Captains**](https://github.com/docker-captains/about)
+* [Bret Fisher](https://www.bretfisher.com/)
+* [Nick Janetakis](https://nickjanetakis.com/)
+* [Lee Calcote](https://gingergeek.com/)
+* [Vladimir Mikhalev](https://www.heyvaldemar.com/)
+
+</details>
+
+<br>
+
+<details>
+<summary><strong>Docker Tips &amp; Tricks</strong></summary>
+
+* [Storing Secrets Securely and Encrypted using Git-Crypt](https://blog.lrvt.de/storing-secrets-securely-via-git-crypt/)
+* [Using YAML Anchors and X Properties in Docker Compose](https://nickjanetakis.com/blog/docker-tip-82-using-yaml-anchors-and-x-properties-in-docker-compose)
+
+</details>
+
+<br>
+
+<details>
+<summary><strong>More Docker-Compose Collections</strong></summary>
+
+* [Official Docker Compose Samples](https://github.com/docker/awesome-compose)
+* [Funky Penguin's Geek Cookbok](https://github.com/geek-cookbook/geek-cookbook) &nbsp;&nbsp; <[Website](https://geek-cookbook.funkypenguin.co.nz/)> &nbsp;&nbsp; <[Premix](https://github.com/geek-cookbook/premix)>
+* [Haxxnet's Awesome Docker Compose Examples](https://github.com/Haxxnet/Compose-Examples) &nbsp;&nbsp; <[Website](https://haxxnet.github.io/Compose-Examples/)>
+* [Linuxserver.io Images](https://www.linuxserver.io/our-images)
+* [Docker Boilerplates](https://github.com/madeofpendletonwool/docker-boilerplates)
+* [DockSTARTer](https://github.com/GhostWriters/DockSTARTer)
+* [Docker Swarm Rocks](https://dockerswarm.rocks/)
+* [Docker Swarm Cookbook](https://github.com/Drauku/docker-swarm-cookbook)
+* [Awesome Stacks](https://github.com/ethibox/awesome-stacks)
+* [Selfhosted Apps Docker](https://github.com/DoTheEvo/selfhosted-apps-docker)
 
 
-<br />
+</details>
 
-> <div align="center"><em>"We see much further, and reach much higher,<br>only because we stand upon the shoulders of giants"</em></div>
-<br />
+### [**Self-Hosting**](https://github.com/docker)
+
+* [Awesome Selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) &nbsp;&nbsp; <[Website](https://awesome-selfhosted.net/)>
+* [The Homelab Wiki](https://thehomelab.wiki/)
+* [Mike Royal's Self-Hosting Guide](https://github.com/mikeroyal/Self-Hosting-Guide)
+* [Selfh.st](https://selfh.st/)
+* [Noted.lol](https://noted.lol)
+
+
+<br>
 
 [`^ Top`](#top)
 
