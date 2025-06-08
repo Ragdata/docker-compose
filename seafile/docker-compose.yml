@@ -1,0 +1,185 @@
+services:
+
+    seafile-mysql:
+        image: mariadb:10.11
+        hostname: seafile-mysql
+        container_name: seafile-mysql
+        restart: unless-stopped
+        healthcheck:
+            test: ["CMD", "/usr/local/bin/healthcheck.sh", "--connect", "--mariadbupgrade", "--innodb_initialized"]
+            interval: 1m
+            timeout: 10s
+            retries: 3
+            start_interval: 10s
+            start_period: 1m
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_LOG_CONSOLE: true
+            MARIADB_AUTO_UPGRADE: 1
+        networks:
+            - seafile
+        volumes:
+            - "seafile-mysql:/var/lib/mysql"
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+
+    seafile-memcached:
+        image: memcached:1.6.29
+        hostname: seafile-memcached
+        container_name: seafile-memcached
+        restart: unless-stopped
+        entrypoint: memcached -m 256
+        networks:
+            - seafile
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+
+    # seasearch:
+    #     image: seafileltd/seasearch:0.9-latest
+    #     hostname: seasearch
+    #     container_name: seasearch
+    #     restart: unless-stopped
+    #     healthcheck:
+    #         test: ["CMD-SHELL", "curl --fail http://seasearch:4080 || exit 1"]
+    #         interval: 1m
+    #         timeout: 10s
+    #         retries: 3
+    #         start_interval: 10s
+    #         start_period: 1m
+    #     environment: 
+    #         SS_FIRST_ADMIN_USER: ${SEARCH_USER:-}
+    #         SS_FIRST_ADMIN_PASSWORD: ${SEARCH_PASSWORD:-}
+    #         SS_STORAGE_TYPE: ${STORAGE_TYPE:-}
+    #         SS_MAX_OBJ_CACHE_SIZE: ${CACHE_SIZE:-10GB}
+    #         SS_S3_ACCESS_ID: ${S3_ACCESS_ID:-}
+    #         SS_S3_USE_V4_SIGNATURE: ${S3_USE_V4_SIGNATURE:-false}
+    #         SS_S3_ACCESS_SECRET: ${S3_ACCESS_SECRET:-}
+    #         SS_S3_ENDPOINT: ${S3_ENDPOINT:-}
+    #         SS_S3_BUCKET: ${S3_BUCKET:-}
+    #         SS_S3_USE_HTTPS: ${S3_USE_HTTPS:-true}
+    #         SS_S3_PATH_STYLE_REQUEST: ${S3_PATH_STYLE_REQUEST:-true}
+    #         SS_S3_AWS_REGION: ${S3_AWS_REGION:-us-east-1}
+    #         SS_S3_SSE_C_KEY: ${S3_SSE_C_KEY:-}
+    #         SS_LOG_TO_STDOUT: ${LOG_TO_STDOUT:-false}
+    #         SS_LOG_DIR: ${LOG_DIR:-/opt/seasearch/data/log}
+    #         SS_LOG_LEVEL: ${LOG_LEVEL:-info}
+    #     networks:
+    #         - seafile
+    #     volumes:
+    #         - "seasearch-data:/opt/seasearch/data"
+    #         - /etc/localtime:/etc/localtime:ro
+    #         - /etc/timezone:/etc/timezone:ro
+    
+    # seafile-onlyoffice:
+    #     image: onlyoffice/documentserver:8.1.0.1
+    #     hostname: seafile-onlyoffice
+    #     container_name: seafile-onlyoffice
+    #     restart: unless-stopped
+    #     healthcheck:
+    #         test: ["CMD-SHELL", "curl --fail http://seafile:6233 || exit 1"]
+    #         interval: 1m
+    #         timeout: 10s
+    #         retries: 3
+    #         start_interval: 10s
+    #         start_period: 1m
+    #     environment:
+    #         JWT_ENABLED: true
+    #         JWT_SECRET: ${ONLYOFFICE_JWT_SECRET}
+    #     networks:
+    #         - seafile
+    #     ports:
+    #         - ${OFFICE_PORT:-6233}:6223/tcp
+    #     volumes:
+    #         - "onlyoffice-logs:/var/log/onlyoffice"
+    #         - "onlyoffice-data:/var/www/onlyoffice/Data"
+    #         - "onlyoffice-lib:/var/lib/onlyoffice"
+
+    seafile:
+        image: seafileltd/seafile-pro-mc:12.0-latest
+        hostname: seafile
+        container_name: seafile
+        restart: unless-stopped
+        depends_on:
+            seafile-mysql:
+                condition: service_healthy
+            seafile-memcached:
+                condition: service_started
+            seasearch:
+                condition: service_healthy
+        healthcheck:
+            test: ["CMD-SHELL", "curl --fail http://seafile:80 || exit 1"]
+            interval: 1m
+            timeout: 10s
+            retries: 3
+            start_interval: 10s
+            start_period: 1m
+        environment:
+            DB_HOST: seafile-mysql
+            DB_PORT: 3306
+            DB_USER: ${SEAFILE_MYSQL_DB_USER:-seafile}
+            DB_ROOT_PASSWD: ${MYSQL_ROOT_PASSWORD}
+            DB_PASSWORD: ${SEAFILE_MYSQL_DB_PASSWORD}
+            SEAFILE_MYSQL_DB_CCNET_DB_NAME: ccnet_db
+            SEAFILE_MYSQL_DB_SEAFILE_DB_NAME: seafile_db
+            SEAFILE_MYSQL_DB_SEAHUB_DB_NAME: seahub_db
+            TIME_ZONE: ${TIME_ZONE:-Etc/UTC}
+            INIT_SEAFILE_ADMIN_EMAIL: ${SEAFILE_ADMIN_EMAIL:-me@example.com}
+            INIT_SEAFILE_ADMIN_PASSWORD: ${SEAFILE_ADMIN_PASSWORD:-asecret}
+            SEAFILE_SERVER_HOSTNAME: ${SEAFILE_SERVER_HOSTNAME}
+            SEAFILE_SERVER_PROTOCOL: ${SEAFILE_SERVER_PROTOCOL}
+            SITE_ROOT: ${SITE_ROOT:-/}
+            NON_ROOT: ${NON_ROOT:-false}
+            JWT_PRIVATE_KEY: ${JWT_PRIVATE_KEY}
+            SEAFILE_LOG_TO_STDOUT: ${SEAFILE_LOG_TO_STDOUT:-false}
+            ENABLE_SEADOC: ${ENABLE_SEADOC:-false}
+            SEADOC_SERVER_URL: ${SEAFILE_SERVER_PROTOCOL}://${SEAFILE_SERVER_HOSTNAME}/sdoc-server
+            INIT_S3_STORAGE_BACKEND_CONFIG: ${S3_STORAGE_BACKEND_CONFIG:-false}
+            INIT_S3_COMMIT_BUCKET: ${S3_COMMIT_BUCKET}
+            INIT_S3_FS_BUCKET: ${S3_FS_BUCKET}
+            INIT_S3_BLOCK_BUCKET: ${S3_BLOCK_BUCKET}
+            INIT_S3_KEY_ID: ${S3_KEY_ID}
+            INIT_S3_SECRET_KEY: ${S3_SECRET_KEY}
+            INIT_S3_USE_V4_SIGNATURE: ${S3_USE_V4_SIGNATURE:-true}
+            INIT_S3_AWS_REGION: ${S3_AWS_REGION:-us-east-1}
+            INIT_S3_HOST: ${S3_HOST}
+            INIT_S3_USE_HTTPS: ${S3_USE_HTTPS:-true}
+        networks:
+            seafile:
+                ipv4_address: ${IPv4}
+        ports:
+            - ${HOST_PORT}:80/tcp
+            - ${HOST_PORT_SSL}:443/tcp
+        volumes:
+            - "seafile-data:/shared"
+            - /etc/localtime:/etc/localtime:ro
+            - /etc/timezone:/etc/timezone:ro
+
+volumes:
+    seafile-mysql:
+        name: seafile-mysql
+        driver: local
+    seafile-data:
+        name: seafile-data
+        driver: local
+    # seasearch-data:
+    #     name: seasearch-data
+    #     driver: local
+    # onlyoffice-logs:
+    #     name: onlyoffice-logs
+    #     driver: local
+    # onlyoffice-data:
+    #     name: onlyoffice-data
+    #     driver: local
+    # onlyoffice-lib:
+    #     name: onlyoffice-lib
+    #     driver: local
+
+networks:
+    seafile:
+        name: seafile
+        driver: bridge
+        ipam:
+            config:
+                - subnet: ${SUBNET}
+                  gateway: ${GATEWAY}
