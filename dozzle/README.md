@@ -25,7 +25,7 @@ Dozzle is a small lightweight application with a web based interface to monitor 
 
 ## [Resources](#top) 📖
 
-* **Website:** https://cloudflare.com
+* **Website:** https://dozzle.dev/
 * **Repository:** https://github.com/amir20/dozzle
 
 [`^ Top`](#top)
