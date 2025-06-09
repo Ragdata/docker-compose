@@ -1,6 +1,6 @@
 <a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Seafile PRO" /></a>
 
-[![Docker Stars][docker-stars]](https://hub.docker.com/r/haiwen/seafile)
+[![Docker Stars][docker-stars]](https://hub.docker.com/r/seafileltd/seafile-pro-mc)
 [![GitHub Stars][github-stars]](https://github.com/haiwen/seafile)
 
 <h1>
