@@ -1,6 +1,7 @@
 <a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Dozzle" /></a>
 
-[![Docker Stars][docker-stars]](https://hub.docker.com/r/amir20/dozzle)
+[![Github Release][github-release]](https://github.com/amir20/dozzle/releases/tag/v8.12.21)
+![Release Date][release-date]
 [![GitHub Stars][github-stars]](https://github.com/amir20/dozzle)
 
 <h1>
@@ -33,5 +34,6 @@ Dozzle is a small lightweight application with a web based interface to monitor 
 
 
 
-[docker-stars]: https://img.shields.io/docker/stars/amir20/dozzle?style=flat-square&logo=docker&labelColor=31383f&color=ffcc00
+[github-release]: https://img.shields.io/github/v/release/amir20/dozzle?style=flat-square&labelColor=31383f
+[release-date]: https://img.shields.io/github/release-date/amir20/dozzle?style=flat-square&labelColor=31383f
 [github-stars]: https://img.shields.io/github/stars/amir20/dozzle

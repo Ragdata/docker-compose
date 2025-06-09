@@ -1,6 +1,7 @@
 <a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Cloudflare DDNS" /></a>
 
-[![Docker Stars][docker-stars]](https://hub.docker.com/r/favonia/cloudflare-ddns)
+[![Github Release][github-release]](https://github.com/favonia/cloudflare-ddns/releases/tag/v1.15.1)
+![Release Date][release-date]
 [![GitHub Stars][github-stars]](https://github.com/favonia/cloudflare-ddns)
 
 <h1>
@@ -33,5 +34,6 @@ A feature-rich and robust Cloudflare DDNS updater with a small footprint. The pr
 
 
 
-[docker-stars]: https://img.shields.io/docker/stars/favonia/cloudflare-ddns?style=flat-square&logo=docker&labelColor=31383f&color=ffcc00
+[github-release]: https://img.shields.io/github/v/release/favonia/cloudflare-ddns?style=flat-square&labelColor=31383f
+[release-date]: https://img.shields.io/github/release-date/favonia/cloudflare-ddns?style=flat-square&labelColor=31383f
 [github-stars]: https://img.shields.io/github/stars/favonia/cloudflare-ddns
