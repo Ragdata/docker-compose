@@ -36,5 +36,5 @@ Seafile features: extensible file properties, file views, file sharing, file syn
 
 
 
-[docker-stars]: https://img.shields.io/docker/stars/haiwen/seafile?style=flat-square&logo=docker&labelColor=31383f&color=ffcc00
+[docker-stars]: https://img.shields.io/docker/stars/seafileltd/seafile-pro-mc?style=flat-square&logo=docker&labelColor=31383f&color=ffcc00
 [github-stars]: https://img.shields.io/github/stars/haiwen/seafile
