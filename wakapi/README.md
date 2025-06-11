@@ -1,4 +1,4 @@
-<a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Wakapi" /></a>
+<a name="top" href="docker-compose.yml" target="_blank"><img height="80" align="right" src="assets/icon.png" alt="Wakapi" /></a>
 
 [![Github Release][github-release]](https://github.com/muety/wakapi/releases/tag/2.13.4)
 ![Release Date][release-date]

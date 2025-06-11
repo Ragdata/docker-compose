@@ -1,4 +1,4 @@
-<a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Vaultwarden" /></a>
+<a name="top" href="docker-compose.yml" target="_blank"><img height="80" align="right" src="assets/icon.png" alt="Vaultwarden" /></a>
 
 [![Github Release][github-release]](https://github.com/dani-garcia/vaultwarden/releases/tag/v1.34.1)
 ![Release Date][release-date]

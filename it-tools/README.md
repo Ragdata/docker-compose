@@ -1,4 +1,4 @@
-<a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="IT Tools" /></a>
+<a name="top" href="docker-compose.yml" target="_blank"><img height="80" align="right" src="assets/icon.png" alt="IT Tools" /></a>
 
 [![Github Release][github-release]](https://github.com/CorentinTh/it-tools/releases/tag/v2024.10.22-7ca5933)
 ![Release Date][release-date]

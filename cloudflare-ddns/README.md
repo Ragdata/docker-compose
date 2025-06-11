@@ -1,4 +1,4 @@
-<a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Cloudflare DDNS" /></a>
+<a name="top" href="docker-compose.yml" target="_blank"><img height="80" align="right" src="assets/icon.png" alt="Cloudflare DDNS" /></a>
 
 [![Github Release][github-release]](https://github.com/favonia/cloudflare-ddns/releases/tag/v1.15.1)
 ![Release Date][release-date]

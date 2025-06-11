@@ -1,4 +1,4 @@
-<a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Linkwarden" /></a>
+<a name="top" href="docker-compose.yml" target="_blank"><img height="80" align="right" src="assets/icon.png" alt="Linkwarden" /></a>
 
 [![Github Release][github-release]](https://github.com/linkwarden/linkwarden/releases/tag/v2.10.2)
 ![Release Date][release-date]

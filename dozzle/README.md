@@ -1,4 +1,4 @@
-<a name="top" href="docker-compose.yml" target="_blank"><img height="100" align="right" src="assets/icon.png" alt="Dozzle" /></a>
+<a name="top" href="docker-compose.yml" target="_blank"><img height="80" align="right" src="assets/icon.png" alt="Dozzle" /></a>
 
 [![Github Release][github-release]](https://github.com/amir20/dozzle/releases/tag/v8.12.21)
 ![Release Date][release-date]
