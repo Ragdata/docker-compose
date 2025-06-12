@@ -1,4 +1,5 @@
 services:
+
     dockwatch:
         image: ghcr.io/notifiarr/dockwatch:main
         hostname: dockwatch
@@ -33,7 +34,7 @@ volumes:
 networks:
     dockwatch:
         name: dockwatch
-        driver: bridge
+        driver: overlay
         ipam:
             config:
                 - subnet: ${SUBNET}

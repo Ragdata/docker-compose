@@ -1,4 +1,5 @@
 services:
+
     linkwarden-postgres:
         image: postgres:17.5-alpine
         hostname: linkwarden-postgres
@@ -61,14 +62,14 @@ volumes:
 networks:
     linkwarden:
         name: linkwarden
-        driver: bridge
+        driver: overlay
         ipam:
             config:
                 - subnet: ${SUBNET}
                   gateway: ${GATEWAY}
     linkwarden-internal:
         name: linkwarden-internal
-        driver: bridge
+        driver: overlay
         internal: true
         ipam:
             config:

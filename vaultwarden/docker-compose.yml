@@ -1,4 +1,5 @@
 services:
+
     vaultwarden:
         image: vaultwarden/server:latest
         hostname: vaultwarden
@@ -38,7 +39,7 @@ volumes:
 networks:
     vaultwarden:
         name: vaultwarden
-        driver: bridge
+        driver: overlay
         ipam:
             config:
                 - subnet: ${SUBNET}

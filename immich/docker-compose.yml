@@ -1,4 +1,5 @@
 services:
+
     immich-redis:
         image: redis:6.2-alpine
         hostname: immich-redis
@@ -88,14 +89,14 @@ volumes:
 networks:
     immich:
         name: immich
-        driver: bridge
+        driver: overlay
         ipam:
             config:
                 - subnet: ${SUBNET}
                   gateway: ${GATEWAY}
     immich-internal:
         name: immich-internal
-        driver: bridge
+        driver: overlay
         internal: true
         ipam:
             config:

@@ -1,4 +1,5 @@
 services:
+
     wakapi:
         image: ghcr.io/muety/wakapi:latest
         hostname: wakapi
@@ -29,7 +30,7 @@ volumes:
 networks:
     wakapi:
         name: wakapi
-        driver: bridge
+        driver: overlay
         ipam:
             config:
                 - subnet: ${SUBNET}
