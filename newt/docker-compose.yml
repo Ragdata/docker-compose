@@ -21,7 +21,7 @@ services:
 networks:
     newt:
         driver: overlay
-        options:
+        driver_opts:
             encrypted: true
         ipam:
             config:
