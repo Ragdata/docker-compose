@@ -9,7 +9,10 @@ services:
             NEWT_SECRET: ${NEWT_SECRET}
             DOCKER_SOCKET: /var/run/docker.sock
         networks:
-            - newt
+            newt:
+                aliases:
+                    - newt
+                    - newt.local
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:ro
             - /etc/localtime:/etc/localtime:ro
