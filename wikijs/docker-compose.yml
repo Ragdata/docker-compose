@@ -71,7 +71,6 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}
     wikijs-internal:
         name: wikijs-internal
         driver: overlay
@@ -79,4 +78,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET_INTERNAL}
-                  gateway: ${GATEWAY_INTERNAL}

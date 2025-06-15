@@ -43,4 +43,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}

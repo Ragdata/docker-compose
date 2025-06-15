@@ -89,7 +89,6 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}
     portainer-internal:
         name: portainer-internal
         driver: overlay
@@ -97,4 +96,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET_INTERNAL}
-                  gateway: ${GATEWAY_INTERNAL}

@@ -93,7 +93,6 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}
     immich-internal:
         name: immich-internal
         driver: overlay
@@ -101,4 +100,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET_INTERNAL}
-                  gateway: ${GATEWAY_INTERNAL}

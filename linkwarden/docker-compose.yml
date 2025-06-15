@@ -66,7 +66,6 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}
     linkwarden-internal:
         name: linkwarden-internal
         driver: overlay
@@ -74,4 +73,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET_INTERNAL}
-                  gateway: ${GATEWAY_INTERNAL}

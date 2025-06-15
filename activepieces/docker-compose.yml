@@ -123,7 +123,6 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}
     activepieces-internal:
         name: activepieces-internal
         driver: overlay
@@ -131,4 +130,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET_INTERNAL}
-                  gateway: ${GATEWAY_INTERNAL}
