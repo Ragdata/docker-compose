@@ -21,7 +21,6 @@ services:
 networks:
     newt:
         driver: overlay
-        scope: swarm
         options:
             encrypted: true
         ipam:
