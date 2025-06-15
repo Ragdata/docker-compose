@@ -22,7 +22,7 @@ networks:
     newt:
         driver: overlay
         driver_opts:
-            encrypted: true
+            encrypted: "true"
         ipam:
             config:
                 - subnet: ${SUBNET}
