@@ -30,9 +30,8 @@ services:
             start_interval: 10s
             start_period: 1m
         networks:
-            portainer:
-                ipv4_address: ${IPv4}
-            portainer-internal:
+            - portainer
+            - portainer-internal
         ports:
             - 8000:8000
             - 9000:9000
@@ -59,8 +58,7 @@ services:
             start_interval: 10s
             start_period: 1m
         networks:
-            portainer:
-                ipv4_address: ${IPv4_TOOLS}
+            - portainer
         ports:
             - 9999:9999
         volumes:
