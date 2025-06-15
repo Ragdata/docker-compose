@@ -18,9 +18,9 @@ services:
             - /etc/localtime:/etc/localtime:ro
             - /etc/timezone:/etc/timezone:ro
         deploy:
-            mode: replicated
-            replicas: 1
-
+            mode: global
+            placement:
+                constraints: [ node.role == manager ]
 networks:
     newt:
         driver: overlay
