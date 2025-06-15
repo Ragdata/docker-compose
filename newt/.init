@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+docker network rm ingress
+
+docker network create --ingress --driver overlay -opt encrypted --subnet 10.0.0.0/24 --gateway 10.0.0.1 ingress

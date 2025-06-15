@@ -8,6 +8,8 @@ services:
             NEWT_ID: ${NEWT_ID}
             NEWT_SECRET: ${NEWT_SECRET}
             DOCKER_SOCKET: /var/run/docker.sock
+        networks:
+            - newt
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock:ro
             - /etc/localtime:/etc/localtime:ro
@@ -15,3 +17,16 @@ services:
         deploy:
             mode: replicated
             replicas: 1
+
+networks:
+    newt:
+        driver: overlay
+        scope: swarm
+        options:
+            encrypted: true
+        ipam:
+            config:
+                - subnet: ${SUBNET}
+                  gateway: ${GATEWAY}
+                  aux_addresses:
+                      newt: ${IPv4}
