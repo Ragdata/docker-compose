@@ -27,6 +27,3 @@ networks:
         ipam:
             config:
                 - subnet: ${SUBNET}
-                  gateway: ${GATEWAY}
-                  aux_addresses:
-                      newt: ${IPv4}
